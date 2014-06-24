@@ -1,0 +1,12 @@
+extends layout
+block content
+  h1
+    Complaints
+  ul
+    each complaint, index in complaints
+      li
+        p= complaint.complaint
+
+  form#formAddComplaint(name="addcomplaint",method="post",action='/addcomplaint')
+    input#inputComplaintString(type="text", placeholder="All you do is Whine.", name="complaintstring")
+    button#btnSubmit(type="submit") submit
