@@ -1,0 +1,9 @@
+<ul>
+<% for(var i = 0; i<complaints.length; i++) { %>
+  <li><%= complaints[i].complaint %></li>
+<% } %>
+</ul>
+<form id="formAddComplaint" name="addcomplaint" method="post" action="/addcomplaint">
+  <input id="inputComplaintString" type="text" placeholder="All you do is Whine." name="complaintstring"/>
+  <button id="btnSubmit" type="submit">submittt</button>
+</form>
