@@ -1,12 +1,20 @@
 extends layout
-block content
-  h1
-    Complaints
-  ul
-    each complaint, index in complaints
-      li
-        p= complaint.complaint
 
-  form#formAddComplaint(name="addcomplaint",method="post",action='/addcomplaint')
-    input#inputComplaintString(type="text", placeholder="All you do is Whine.", name="complaintstring")
-    button(id="btnSubmit" class="btn btn-success" type="submit") submit
+block content
+    h1= title
+    p Welcome to our test
+
+    // Wrapper
+    #wrapper
+
+        // USER LIST
+        h2 User List
+        #userList
+            table
+                thead
+                    th UserName
+                    th Delete?
+                tbody
+        // /USER LIST
+
+    // /WRAPPER
