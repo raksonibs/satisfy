@@ -3,14 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  var db = req.db
-  var collection = db.get('complaints')
-  collection.find({}, {}, function(err, response) {
-    res.render('index', {
-      "complaints": response
-    })
-  })
-  // res.render('index.jade', { title: 'Express' });
+    var db = req.db;
+    db.collection('complaints').find().toArray(function (err, items) {
+      res.json(items)
+    });
 });
 
 router.post('/addcomplaint', function(req,res) {
