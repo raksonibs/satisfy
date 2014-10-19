@@ -5,10 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/satisfy')
+// var monk = require('monk');
+// var db = monk('localhost:27017/satisfy')
+var mongo = require('mongoskin');
+var db = mongo.db("mongodb://localhost:27017/satisfy", {native_parser:true});
 
 var routes = require('./routes/index');
+var complaints = require('./routes/complaints');
 
 var app = express();
 
@@ -30,6 +33,7 @@ app.use(function(req, res, next) {
 })
 
 app.use('/', routes);
+app.use('/complaints', complaints);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
